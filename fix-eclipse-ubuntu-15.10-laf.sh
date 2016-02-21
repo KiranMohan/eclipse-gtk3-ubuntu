@@ -77,7 +77,7 @@ cat > $HOME/Desktop/$LAUNCH_FILENAME << endtext
 Version=$ECLIPSE_VERS
 Name=Eclipse $ECLIPSE_VERS
 Comment=Eclipse IDE $ECLIPSE_VERS
-Exec=env GTK_DATA_PREFIX=$ECLIPSE_THEME_ROOT_DIR GTK_THEME=Ambiance-Eclipse $ECLIPSE_HOME/eclipse
+Exec=env GTK_DATA_PREFIX=$HOME/.eclipse GTK_THEME=Ambiance-Eclipse $ECLIPSE_HOME/eclipse
 Icon=$ECLIPSE_HOME/icon.xpm
 Terminal=false
 Type=Application
