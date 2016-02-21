@@ -1,4 +1,4 @@
-# Eclipse GTK3 and Ubuntu workarounds
+# Eclipse : GTK3 and Ubuntu workarounds
 
 ###fix-eclipse-ubuntu-15.10-laf.sh
 -------------------------------
