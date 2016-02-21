@@ -9,3 +9,10 @@ launch using the launcher.
 Usage:  
 `<path>/fix-eclipse-ubuntu-15.10-laf.sh <path/to/eclipse>`
 
+Limitations:  
+Currently only works on Ubuntu 15.10 for Ambiance theme.
+
+Please do send me pull requests if you have any update to the scripts like fixes for other Linux OSes, themes, etc.  
+
+
+
