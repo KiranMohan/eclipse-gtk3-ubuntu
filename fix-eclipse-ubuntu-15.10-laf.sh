@@ -19,10 +19,12 @@
 
 # TODO: fix for Radiance theme
 
+testedDistributionsString='Ubuntu 15.10 and Fedora 22'
+
 # tested only ubuntu for now
-lsb_release -a 2>&1 |grep -q 'Ubuntu 15.10'
+lsb_release -a 2>&1 | grep -q -e 'Ubuntu 15.10' -e 'Fedora release 22'
 if [ $? -ne 0 ]; then
-	echo "Currently this scripts is only tested on Ubuntu 15.10."
+	echo "Currently this script is only tested on ${testedDistributionsString}"
 	echo "Bye"
 	exit 0;
 fi
@@ -95,7 +97,7 @@ chmod 700 $HOME/Desktop/$LAUNCH_FILENAME $HOME/.local/share/applications/$LAUNCH
 
 
 # say bye
-echo "Completed fixing Eclipse UI for Ubuntu 15.10"
+echo "Completed fixing Eclipse UI for ${testedDistributionsString}"
 echo "You can launch Eclipse from launcher on the Desktop or by search for Eclipse in Unity Dash"
 echo "Bye"
 
