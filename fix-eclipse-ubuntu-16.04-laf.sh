@@ -33,7 +33,7 @@ fi
 
 # check arguments
 if [ $# -eq 0 ]; then 
-	echo "Usage: $0 path/to/eclipse"
+	echo "Usage: $0  <path/to/eclipse>"
 	exit 0;
 fi
 

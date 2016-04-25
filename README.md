@@ -2,11 +2,11 @@
 
 ###fix-eclipse-ubuntu-16.04-laf.sh
 -------------------------------
-DONT USE: 
+DONT USE with Eclipse 4.5: 
 Eclipse 4.5 has some issues with GTK3 in Ubuntu 16.04.  
 Alternatives:
-  1. Disable GTK3. (SWT_GTK3=0 option)
-  2. Try Eclipse 4.6
+  1. Disable GTK3 with the "SWT_GTK3=0",i.e., fallback to GTK2
+  2. Try Eclipse 4.6 along with this script
 
 ###fix-eclipse-ubuntu-15.10-laf.sh
 -------------------------------
