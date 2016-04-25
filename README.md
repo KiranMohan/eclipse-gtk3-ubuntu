@@ -1,5 +1,13 @@
 # Eclipse : GTK3 and Ubuntu workarounds
 
+###fix-eclipse-ubuntu-16.04-laf.sh
+-------------------------------
+DONT USE: 
+Eclipse 4.5 has some issues with GTK3 in Ubuntu 16.04. 
+Alternatives:
+  1. Disable GTK3. (SWT_GTK3=0 option)
+  2. Try Eclipse 4.6
+
 ###fix-eclipse-ubuntu-15.10-laf.sh
 -------------------------------
 This script fixes the ugly tooltip in Eclipse using GTK3 when running on Ubuntu with Ambiance Theme.
