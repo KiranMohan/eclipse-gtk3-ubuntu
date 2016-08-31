@@ -50,6 +50,9 @@ fi
 ECLIPSE_VERS=`grep version $ECLIPSE_HOME/.eclipseproduct | sed 's/version=//'`
 DATE=`date|tr ' ' '_'`
 
+# Fetch location of desktop directory
+DESKTOP_DIR=$(xdg-user-dir DESKTOP)
+
 # Directory where the modified Ambiance-Eclipse theme is stored.
 ECLIPSE_THEME_ROOT_DIR=$HOME/.eclipse/share/themes
 ECLIPSE_THEME_DIR=$ECLIPSE_THEME_ROOT_DIR/Ambiance-Eclipse
@@ -71,12 +74,12 @@ sed -i -r -e 's/@define-color tooltip_bg_color.*/@define-color tooltip_bg_color 
 
 # create Eclipse launch menu
 LAUNCH_FILENAME="eclipse_$ECLIPSE_VERS.desktop"
-if [ -f $HOME/Desktop/$LAUNCH_FILENAME ]; then
-	mv $HOME/Desktop/$LAUNCH_FILENAME $HOME/Desktop/$LAUNCH_FILENAME.b4_$DATE
+if [ -f $DESKTOP_DIR/$LAUNCH_FILENAME ]; then
+	mv $DESKTOP_DIR/$LAUNCH_FILENAME $DESKTOP_DIR/$LAUNCH_FILENAME.b4_$DATE
 fi
-touch $HOME/Desktop/$LAUNCH_FILENAME
+touch $DESKTOP_DIR/$LAUNCH_FILENAME
 
-cat > $HOME/Desktop/$LAUNCH_FILENAME << endtext
+cat > $DESKTOP_DIR/$LAUNCH_FILENAME << endtext
 [Desktop Entry]
 Version=$ECLIPSE_VERS
 Name=Eclipse $ECLIPSE_VERS
@@ -92,10 +95,10 @@ endtext
 if [ -f $HOME/.local/share/applications/$LAUNCH_FILENAME ]; then
 	mv $HOME/.local/share/applications/$LAUNCH_FILENAME $HOME/.local/share/applications/$LAUNCH_FILENAME.b4_$DATE
 fi
-cp $HOME/Desktop/$LAUNCH_FILENAME $HOME/.local/share/applications/$LAUNCH_FILENAME
+cp $DESKTOP_DIR/$LAUNCH_FILENAME $HOME/.local/share/applications/$LAUNCH_FILENAME
 
 # set the permission to launch files
-chmod 700 $HOME/Desktop/$LAUNCH_FILENAME $HOME/.local/share/applications/$LAUNCH_FILENAME
+chmod 700 $DESKTOP_DIR/$LAUNCH_FILENAME $HOME/.local/share/applications/$LAUNCH_FILENAME
 
 
 # say bye
