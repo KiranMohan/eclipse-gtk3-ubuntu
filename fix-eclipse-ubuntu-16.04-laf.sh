@@ -53,23 +53,23 @@ DATE=`date|tr ' ' '_'`
 # Fetch location of desktop directory
 DESKTOP_DIR=$(xdg-user-dir DESKTOP)
 
-# Directory where the modified Ambiance-Eclipse theme is stored.
+# Directory where the modified Ambiance theme is stored.
 ECLIPSE_THEME_ROOT_DIR=$HOME/.eclipse/share/themes
-ECLIPSE_THEME_DIR=$ECLIPSE_THEME_ROOT_DIR/Ambiance-Eclipse
+ECLIPSE_THEME_DIR=$ECLIPSE_THEME_ROOT_DIR/Ambiance
 if [ -d $ECLIPSE_THEME_DIR ];then
 	mv $ECLIPSE_THEME_DIR $ECLIPSE_THEME_DIR".b4_"$DATE
 fi
 mkdir -p $ECLIPSE_THEME_DIR
 
-# copy Ambiance-Eclipse theme and modify tooltip color
+# copy Ambiance theme and modify tooltip color
 cp -rf /usr/share/themes/Ambiance/* $ECLIPSE_THEME_DIR
-sed -i 's/Ambiance/Ambiance-Eclipse/g' \
-	    $ECLIPSE_THEME_DIR/index.theme  \
-	    $ECLIPSE_THEME_DIR/metacity-1/metacity-theme-1.xml
 
 sed -i -r -e 's/@define-color tooltip_bg_color.*/@define-color tooltip_bg_color #f5f5c5;/'\
 	  -e 's/@define-color tooltip_fg_color.*/@define-color tooltip_fg_color #000000;/'\
 		$ECLIPSE_THEME_DIR/gtk-3.0/gtk-main.css
+
+sed -i -r -e 's/color: @tooltip_fg_color;/color: #000000;/'\
+    $ECLIPSE_THEME_DIR/gtk-3.0/gtk-widgets.css
 
 # also copy Default theme (somehow needed to keep button border
 # animations the same)
@@ -87,7 +87,7 @@ cat > $DESKTOP_DIR/$LAUNCH_FILENAME << endtext
 Version=$ECLIPSE_VERS
 Name=Eclipse $ECLIPSE_VERS
 Comment=Eclipse IDE $ECLIPSE_VERS
-Exec=env GTK_DATA_PREFIX=$HOME/.eclipse GTK_THEME=Ambiance-Eclipse $ECLIPSE_HOME/eclipse
+Exec=env GTK_DATA_PREFIX=$HOME/.eclipse GTK_THEME=Ambiance $ECLIPSE_HOME/eclipse
 Icon=$ECLIPSE_HOME/icon.xpm
 Terminal=false
 Type=Application
