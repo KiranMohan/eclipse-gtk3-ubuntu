@@ -71,6 +71,9 @@ sed -i -r -e 's/@define-color tooltip_bg_color.*/@define-color tooltip_bg_color 
 	  -e 's/@define-color tooltip_fg_color.*/@define-color tooltip_fg_color #000000;/'\
 		$ECLIPSE_THEME_DIR/gtk-3.0/gtk-main.css
 
+# also copy Default theme (somehow needed to keep button border
+# animations the same)
+cp -rf /usr/share/themes/Default $ECLIPSE_THEME_DIR/../
 
 # create Eclipse launch menu
 LAUNCH_FILENAME="eclipse_$ECLIPSE_VERS.desktop"
