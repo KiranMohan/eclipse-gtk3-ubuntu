@@ -1,5 +1,24 @@
 # Eclipse : GTK3 and Ubuntu workarounds
 
+### Ubuntu 16.10
+Eclipse + GTK3 + Ubuntu 16.10 doesn't work.  
+Use GTK2.
+  1. Install libwebkitgtk-1.0-0 (https://bugs.eclipse.org/bugs/show_bug.cgi?id=456786)
+  2. use an eclipse.desktop file with below text to launch eclipse with GTK2  
+        -----------------------------------------  
+        [Desktop Entry]  
+        Version=4.6.1  
+        Name=Eclipse 4.6.1  
+        Comment=Eclipse IDE 4.6.1  
+        Exec=env SWT_GTK3=0 GTK2_RC_FILES=`<DIR>`/.gtkrc-eclipse `<DIR>`/eclipse-jee-neon/eclipse  
+        Icon=`<DIR>`/eclipse-jee-neon/icon.xpm  
+        Terminal=false  
+        Type=Application  
+        Categories=Utility;Application;  
+        -----------------------------------------  
+     Replace `<DIR>` with the proper directory.  
+     You can get the gtkrc-eclipse file from [jeeeyul-eclipse-themes](https://github.com/jeeeyul/eclipse-themes/wiki/Linux-Huge-Toolbar-Problem).  
+
 ###fix-eclipse-ubuntu-16.04-laf.sh
 -------------------------------
 DONT USE with Eclipse 4.5: 
